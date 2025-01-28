@@ -2,12 +2,26 @@ package com.mballem.tarefas.web.controller;
 
 import com.mballem.internal.entity.Contato;
 import com.mballem.internal.service.ContatoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("tarefas/contatos")
 public class ContatoController {
 
-    // EXERCICIO 1
-    public Object create() {
+    private final ContatoService contatoService;
 
+    public ContatoController(ContatoService contatoService) {
+        this.contatoService = contatoService;
+    }
+
+    // EXERCICIO 1
+    @GetMapping
+    public ResponseEntity<Contato> create(@RequestBody Contato contato) {
+        Contato contact = contatoService.save(contato);
+        return ResponseEntity.status(HttpStatus.CREATED).body(contact);
     }
 
     // EXERCICIO 2
@@ -18,7 +32,6 @@ public class ContatoController {
 
     // EXERCICIO 3
     public Object getContatoByNome() {
-
         return null;
     }
 
