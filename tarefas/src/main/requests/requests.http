@@ -1,0 +1,9 @@
+### Criando um contato
+# @no-log
+POST http://localhost:8080/tarefas/contatos
+Content-Type: application/json
+
+{
+  "nome": "Nome do contato",
+  "dataNascimento": "2018-08-03"
+}

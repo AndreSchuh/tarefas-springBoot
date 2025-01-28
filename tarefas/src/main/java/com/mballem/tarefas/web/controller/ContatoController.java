@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("tarefas/contatos")
+@RequestMapping("/tarefas/contatos")
 public class ContatoController {
 
     private final ContatoService contatoService;
@@ -18,7 +18,7 @@ public class ContatoController {
     }
 
     // EXERCICIO 1
-    @GetMapping
+    @PostMapping
     public ResponseEntity<Contato> create(@RequestBody Contato contato) {
         Contato contact = contatoService.save(contato);
         return ResponseEntity.status(HttpStatus.CREATED).body(contact);
